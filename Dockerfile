@@ -13,7 +13,8 @@ RUN sed -i '87d' object_detection/protos/ssd.proto \
 RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN pip install dask --upgrade \
-    && pip install pandas
+    && pip install pandas \
+    && pip install Pillow
 
 RUN python setup.py sdist \
     && (cd slim && python setup.py sdist)
