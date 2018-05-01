@@ -9,7 +9,7 @@ RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
 
 WORKDIR /tensorflow/models/research
 RUN sed -i '87d' object_detection/protos/ssd.proto \
-    && sed -e "168s/range(num_boundaries)/list(range(num_boundaries))/" object_detection/utils/learning_schedules.py
+    && sed -i -e "168s/range(num_boundaries)/list(range(num_boundaries))/" object_detection/utils/learning_schedules.py
 RUN protoc object_detection/protos/*.proto --python_out=.
 
 RUN pip install dask --upgrade \
