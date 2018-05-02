@@ -15,7 +15,8 @@ RUN protoc object_detection/protos/*.proto --python_out=.
 RUN pip install dask --upgrade \
     && pip install pandas \
     && pip install Pillow \
-    && pip install setuptools --upgrade
+    && pip install setuptools --upgrade \
+    && apt-get install python3-setuptools
 
 RUN python setup.py sdist \
     && (cd slim && python setup.py sdist)
