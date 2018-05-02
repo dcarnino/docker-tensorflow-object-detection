@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:1.7.0-devel-gpu-py3
+FROM tensorflow/tensorflow:1.6.0-devel-gpu-py3
 
 RUN apt-get update && yes | apt-get upgrade
 RUN apt-get install -y python-tk protobuf-compiler python-lxml git\
