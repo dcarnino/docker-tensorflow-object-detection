@@ -16,7 +16,7 @@ RUN pip install dask --upgrade \
     && pip install pandas \
     && pip install Pillow \
     && pip install setuptools --upgrade \
-    && apt-get install python3-setuptools
+    && apt-get install -y python3-setuptools
 
 RUN python setup.py sdist \
     && (cd slim && python setup.py sdist)
