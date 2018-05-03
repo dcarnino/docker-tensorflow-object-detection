@@ -1,13 +1,9 @@
 FROM tensorflow/tensorflow:1.6.0-devel-gpu-py3
 
 RUN apt-get update && yes | apt-get upgrade
-RUN echo "\nalias python=python3" >> ~/.profile
-RUN cat ~/.profile
-RUN . ~/.profile
-RUN alias python=python3
-RUN python --version
+RUN python3 --version
 RUN apt-get install -y python-tk protobuf-compiler python-lxml git\
-    && pip install Cython
+    && pip3 install Cython
 
 RUN mkdir -p /tensorflow/models
 RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
@@ -17,12 +13,12 @@ RUN sed -i '87d' object_detection/protos/ssd.proto \
     && sed -i -e "168s/range(num_boundaries)/list(range(num_boundaries))/" object_detection/utils/learning_schedules.py
 RUN protoc object_detection/protos/*.proto --python_out=.
 
-RUN pip install --upgrade pip \
-    && pip install --upgrade dask \
-    && pip install pandas \
-    && pip install Pillow
+RUN pip3 install --upgrade pip3 \
+    && pip3 install --upgrade dask \
+    && pip3 install pandas \
+    && pip3 install Pillow
 
-RUN python setup.py sdist \
-    && (cd slim && python setup.py sdist)
+RUN python3 setup.py sdist \
+    && (cd slim && python3 setup.py sdist)
 
 ENV PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
