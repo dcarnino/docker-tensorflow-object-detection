@@ -1,6 +1,8 @@
 FROM tensorflow/tensorflow:1.6.0-devel-gpu-py3
 
 RUN apt-get update && yes | apt-get upgrade
+RUN echo -e "\nalias python=python3" >> ~/.bashrc \
+    && source ~/.bashrc
 RUN apt-get install -y python-tk protobuf-compiler python-lxml git\
     && pip install Cython
 
@@ -16,9 +18,6 @@ RUN pip install --upgrade pip \
     && pip install --upgrade dask \
     && pip install pandas \
     && pip install Pillow
-
-RUN wget https://bitbucket.org/pypa/setuptools/downloads/ez_setup.py \
-    && python ez_setup.py
 
 RUN python setup.py sdist \
     && (cd slim && python setup.py sdist)
