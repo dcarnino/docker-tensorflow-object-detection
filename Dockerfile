@@ -2,7 +2,7 @@ FROM tensorflow/tensorflow:1.6.0-devel-gpu-py3
 
 RUN apt-get update && yes | apt-get upgrade
 RUN echo -e "\nalias python=python3" >> ~/.bashrc
-RUN source ~/.bashrc
+RUN . ~/.bashrc
 RUN apt-get install -y python-tk protobuf-compiler python-lxml git\
     && pip install Cython
 
