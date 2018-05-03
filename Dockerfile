@@ -13,7 +13,7 @@ RUN sed -i '87d' object_detection/protos/ssd.proto \
     && sed -i -e "168s/range(num_boundaries)/list(range(num_boundaries))/" object_detection/utils/learning_schedules.py
 RUN protoc object_detection/protos/*.proto --python_out=.
 
-RUN pip3 install --upgrade pip3 \
+RUN pip3 install --upgrade pip \
     && pip3 install --upgrade dask \
     && pip3 install pandas \
     && pip3 install Pillow
