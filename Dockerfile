@@ -9,7 +9,8 @@ RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
 
 RUN git clone https://github.com/cocodataset/cocoapi.git \
     && cd cocoapi/PythonAPI \
-    && make \
+    && python3 setup.py build_ext --inplace \
+	&& rm -rf build \
     && cp -r pycocotools /tensorflow/models/research/ \
     && cd ../../
 
