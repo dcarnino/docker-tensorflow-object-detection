@@ -10,7 +10,7 @@ RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
 RUN git clone https://github.com/cocodataset/cocoapi.git \
     && cd cocoapi/PythonAPI \
     && make \
-    && cp -r pycocotools /tensorflow/models/research/
+    && cp -r pycocotools /tensorflow/models/research/ \
     && cd ../../
 
 WORKDIR /tensorflow/models/research
