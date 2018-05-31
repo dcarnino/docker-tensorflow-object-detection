@@ -24,7 +24,7 @@ RUN pip3 install --upgrade pip \
     && pip3 install pandas \
     && pip3 install Pillow
     
-RUN pip3 install tf-nightly-gpu
+RUN pip3 install tf-nightly-gpu==1.9.0.dev20180503
 
 RUN python3 setup.py sdist \
     && (cd slim && python3 setup.py sdist)
