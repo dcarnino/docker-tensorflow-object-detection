@@ -5,7 +5,7 @@ RUN apt-get install -y python3-tk protobuf-compiler python3-lxml git\
     && pip3 install Cython
 
 RUN mkdir -p /tensorflow/models
-RUN git clone https://github.com/tensorflow/models.git /tensorflow/models
+RUN git clone https://github.com/dcarnino/models.git /tensorflow/models
 
 RUN git clone https://github.com/cocodataset/cocoapi.git \
     && cd cocoapi/PythonAPI \
